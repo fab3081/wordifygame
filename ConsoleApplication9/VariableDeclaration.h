@@ -1,0 +1,112 @@
+#define WrongWord iText(20,350,"No word found",GLUT_BITMAP_TIMES_ROMAN_24);
+#define ExtraWord iText(20,350,"Extra Word",GLUT_BITMAP_TIMES_ROMAN_24);
+#define MoreThanOnce iText(20,400,"You cannot use a ",GLUT_BITMAP_TIMES_ROMAN_24);iText(20,350,"alphabet more than ",GLUT_BITMAP_TIMES_ROMAN_24);iText(20,300,"once",GLUT_BITMAP_TIMES_ROMAN_24);
+#define DiscoveredWord iText(20,400,"You have already ",GLUT_BITMAP_TIMES_ROMAN_24);iText(20,350,"discovered this word",GLUT_BITMAP_TIMES_ROMAN_24);
+#define DiscoveredBonusWord iText(20,400,"You have already",GLUT_BITMAP_TIMES_ROMAN_24);iText(20,350,"discovered this",GLUT_BITMAP_TIMES_ROMAN_24);iText(20,300,"bonus word",GLUT_BITMAP_TIMES_ROMAN_24);
+#define MatchWordBox iText(20,400,"Please choose the",GLUT_BITMAP_TIMES_ROMAN_24);iText(20,350,"words that match",GLUT_BITMAP_TIMES_ROMAN_24);iText(20,300,"the given boxes",GLUT_BITMAP_TIMES_ROMAN_24);
+#define WidthOfImage 60
+#define HeightOfImage 60
+# define ChestOpen 1
+#define ChestClose 0
+#define LinkMode 10
+#define MenuMode 20
+#define GameOver 300
+#define InstructionsMode 383
+#define HighScoreMode 234
+#define DifficultyMode 899
+#define ExitMode exit(0);
+#define Easy 0
+#define Medium 1
+#define Hard 2
+
+int i=0;
+char arr[100];
+int level0_bat=0,level0_tab=0,level0_at=0,level0_bro=0,level0_rob=0,level0_or=0,level0_mad=0,level0_dam=0,level0_am=0,level0_pit=0,level0_tip=0,level0_it=0,level0_pat=0,level0_tap=0,level0_apt=0;
+int level1_word=0,level1_row=0,level1_or=0,level1_do=0,level1_rod=0,level1_deny=0,level1_dye=0,level1_end=0,level1_den=0,level1_yen=0,level1_gone=0,level1_ego=0,level1_gen=0,level1_one=0,level1_neo=0,level1_near=0,level1_ear=0,level1_earn=0,level1_era=0,level1_are=0,level1_ran=0,level1_heat=0,level1_eat=0,level1_the=0,level1_tea=0,level1_hat=0,level1_hate=0,level1_ate=0;
+int level2_dream=0,level2_deam=0,level2_dare=0,level2_dame=0,level2_made=0,level2_read=0,level2_mare=0,level2_dear=0,level2_swing=0,level2_wing=0,level2_sing=0,level2_sign=0,level2_swig=0,level2_wrong=0,level2_worn=0,level2_grow=0,level2_gown=0,level2_now=0,level2_own=0,level2_won=0,level2_grown=0,level2_row=0,level2_nor=0,level2_armed=0,level2_wings=0;
+int FlagNoWord=0;
+int FlagExtraWord=0;
+int FlagMatchWordBox=0;
+int flag=0;
+int level_0=0,level_1=0,level_2=0;
+int score=0;
+char strscore[1000];
+int countW=0,countO=0,countR=0,countD=0,countB=0,countA=0,countT=0,countM=0,countI=0,countP=0,countE=0,countY=0,countN=0,countG=0,countH=0,countS=0;
+int flagW_MoreThanOnce=0,flagO_MoreThanOnce=0,flagR_MoreThanOnce=0,flagD_MoreThanOnce=0,flagB_MoreThanOnce=0,flagA_MoreThanOnce=0,flagT_MoreThanOnce=0,flagM_MoreThanOnce=0,flagP_MoreThanOnce=0,flagI_MoreThanOnce=0,flagN_MoreThanOnce=0,flagY_MoreThanOnce=0,flagE_MoreThanOnce=0,flagG_MoreThanOnce=0,flagH_MoreThanOnce=0,flagS_MoreThanOnce=0;
+int level2_dream_score_flag=0,level2_dame_score_flag=0,level2_deam_score_flag=0,level2_dare_score_flag=0,level2_read_score_flag=0,level2_made_score_flag=0,level2_mare_score_flag=0,level2_dear_score_flag=0,level2_swing_score_flag=0,level2_wing_score_flag=0,level2_sing_score_flag=0,level2_sign_score_flag=0,level2_swig_score_flag=0,level2_wrong_score_flag=0,level2_worn_score_flag=0,level2_grow_score_flag=0,level2_gown_score_flag=0,level2_won_score_flag=0,level2_now_score_flag=0,level2_own_score_flag=0,level2_grown_score_flag=0,level2_row_score_flag=0,level2_nor_score_flag=0,level2_wings_score_flag=0,level2_armed_score_flag=0;
+int level1_word_score_flag=0,level1_or_score_flag=0,level1_do_score_flag=0,level1_row_score_flag=0,level1_rod_score_flag=0,level1_dye_score_flag=0,level1_end_score_flag=0,level1_deny_score_flag=0,level1_den_score_flag=0,level1_yen_score_flag=0,level1_gone_score_flag=0,level1_ego_score_flag=0,level1_gen_score_flag=0,level1_one_score_flag=0,level1_neo_score_flag=0,level1_near_score_flag=0,level1_earn_score_flag=0,level1_are_score_flag=0,level1_era_score_flag=0,level1_ear_score_flag=0,level1_ran_score_flag=0,level1_heat_score_flag=0,level1_eat_score_flag=0,level1_tea_score_flag=0,level1_the_score_flag=0,level1_hat_score_flag=0,level1_hate_score_flag=0,level1_ate_score_flag=0;
+int level0_bat_score_flag=0,level0_tab_score_flag=0,level0_at_score_flag=0,level0_rob_score_flag=0,level0_bro_score_flag=0,level0_or_score_flag=0,level0_mad_score_flag=0,level0_dam_score_flag=0,level0_am_score_flag=0,level0_pit_score_flag=0,level0_tip_score_flag=0,level0_it_score_flag=0,level0_pat_score_flag=0,level0_tap_score_flag=0,level0_apt_score_flag=0;
+int level_2_flag_discovered_word_DREAM=0,level_2_flag_discovered_word_DEAM=0,level_2_flag_discovered_word_DARE=0,level_2_flag_discovered_word_DAME=0,level_2_flag_discovered_word_MADE=0,level_2_flag_discovered_word_READ=0,level_2_flag_discovered_word_MARE=0,level_2_flag_discovered_word_DEAR=0,level_2_flag_discovered_word_SWING=0,level_2_flag_discovered_word_SING=0,level_2_flag_discovered_word_WING=0,level_2_flag_discovered_word_SIGN=0,level_2_flag_discovered_word_SWIG=0,level_2_flag_discovered_word_WRONG=0,level_2_flag_discovered_word_WORN=0,level_2_flag_discovered_word_GROW=0,level_2_flag_discovered_word_GOWN=0,level_2_flag_discovered_word_WON=0,level_2_flag_discovered_word_NOW=0,level_2_flag_discovered_word_OWN=0,level_2_flag_discovered_word_GROWN=0,level_2_flag_discovered_word_ROW=0,level_2_flag_discovered_word_NOR=0,level_2_flag_discovered_word_ARMED=0,level_2_flag_discovered_word_WINGS=0;
+int level_1_flag_discovered_word_WORD=0,level_1_flag_discovered_word_OR=0,level_1_flag_discovered_word_DO=0,level_1_flag_discovered_word_ROW=0,level_1_flag_discovered_word_ROD=0,level_1_flag_discovered_word_DENY=0,level_1_flag_discovered_word_DYE=0,level_1_flag_discovered_word_DEN=0,level_1_flag_discovered_word_END=0,level_1_flag_discovered_word_YEN=0,level_1_flag_discovered_word_GONE=0,level_1_flag_discovered_word_EGO=0,level_1_flag_discovered_word_GEN=0,level_1_flag_discovered_word_ONE=0,level_1_flag_discovered_word_NEO=0,level_1_flag_discovered_word_NEAR=0,level_1_flag_discovered_word_EARN=0,level_1_flag_discovered_word_EAR=0,level_1_flag_discovered_word_ERA=0,level_1_flag_discovered_word_ARE=0,level_1_flag_discovered_word_RAN=0,level_1_flag_discovered_word_HEAT=0,level_1_flag_discovered_word_EAT=0,level_1_flag_discovered_word_TEA=0,level_1_flag_discovered_word_THE=0,level_1_flag_discovered_word_HAT=0,level_1_flag_discovered_word_HATE=0,level_1_flag_discovered_word_ATE=0;
+int level_0_flag_discovered_word_BAT=0,level_0_flag_discovered_word_TAB=0,level_0_flag_discovered_word_AT=0,level_0_flag_discovered_word_BRO=0,level_0_flag_discovered_word_ROB=0,level_0_flag_discovered_word_OR=0,level_0_flag_discovered_word_MAD=0,level_0_flag_discovered_word_DAM=0,level_0_flag_discovered_word_AM=0,level_0_flag_discovered_word_TIP=0,level_0_flag_discovered_word_PIT=0,level_0_flag_discovered_word_IT=0,level_0_flag_discovered_word_PAT=0,level_0_flag_discovered_word_TAP=0,level_0_flag_discovered_word_APT=0;
+int CountDiscoveredWord=0,CountDiscoveredBonusWord=0;
+
+int level_0_CountHints_TAB=0,level_0_CountHints_BAT=0,level_0_CountHints_AT=0,level_0_CountHints_ROB=0,level_0_CountHints_BRO=0,level_0_CountHints_OR=0,level_0_CountHints_MAD=0,level_0_CountHints_DAM=0,level_0_CountHints_AM=0,level_0_CountHints_TIP=0,level_0_CountHints_PIT=0,level_0_CountHints_IT=0, level_0_CountHints_TAP=0,level_0_CountHints_PAT=0,level_0_CountHints_APT=0;
+
+int level_1_CountHints_WORD=0,level_1_CountHints_OR=0,level_1_CountHints_ROW=0,level_1_CountHints_DENY=0,level_1_CountHints_DYE=0,level_1_CountHints_END=0,level_1_CountHints_DEN=0,level_1_CountHints_GONE=0,level_1_CountHints_GEN=0,level_1_CountHints_EGO=0,level_1_CountHints_ONE=0,level_1_CountHints_NEAR=0,level_1_CountHints_EARN=0,level_1_CountHints_EAR=0,level_1_CountHints_ERA=0,level_1_CountHints_HEAT=0,level_1_CountHints_TEA=0,level_1_CountHints_EAT=0,level_1_CountHints_THE=0;
+
+int level_0_hints_score_flag_t_of_tab=0,level_0_hints_score_flag_a_of_tab=0,level_0_hints_score_flag_b_of_tab=0,level_0_hints_score_flag_t_of_bat=0,level_0_hints_score_flag_a_of_bat=0,level_0_hints_score_flag_b_of_bat=0,level_0_hints_score_flag_t_of_at=0,level_0_hints_score_flag_a_of_at=0,level_0_hints_score_flag_b_of_bro=0,level_0_hints_score_flag_r_of_bro=0,level_0_hints_score_flag_o_of_bro=0,level_0_hints_score_flag_r_of_rob=0,level_0_hints_score_flag_o_of_rob=0,level_0_hints_score_flag_b_of_rob=0,level_0_hints_score_flag_r_of_or=0,level_0_hints_score_flag_o_of_or=0,level_0_hints_score_flag_m_of_mad=0,level_0_hints_score_flag_a_of_mad=0,level_0_hints_score_flag_d_of_mad=0,level_0_hints_score_flag_d_of_dam=0,level_0_hints_score_flag_a_of_dam=0,level_0_hints_score_flag_m_of_dam=0,level_0_hints_score_flag_m_of_am=0,level_0_hints_score_flag_a_of_am=0,level_0_hints_score_flag_t_of_tip=0,level_0_hints_score_flag_i_of_tip=0,level_0_hints_score_flag_p_of_tip=0,level_0_hints_score_flag_t_of_pit=0,level_0_hints_score_flag_i_of_pit=0,level_0_hints_score_flag_p_of_pit=0,level_0_hints_score_flag_t_of_it=0,level_0_hints_score_flag_i_of_it=0,level_0_hints_score_flag_t_of_tap=0,level_0_hints_score_flag_a_of_tap=0,level_0_hints_score_flag_p_of_tap=0,level_0_hints_score_flag_t_of_pat=0,level_0_hints_score_flag_a_of_pat=0,level_0_hints_score_flag_p_of_pat=0,level_0_hints_score_flag_t_of_apt=0,level_0_hints_score_flag_a_of_apt=0,level_0_hints_score_flag_p_of_apt=0;
+
+int level_1_hints_score_flag_w_of_word=0,level_1_hints_score_flag_o_of_word=0,level_1_hints_score_flag_r_of_word=0,level_1_hints_score_flag_d_of_word=0,level_1_hints_score_flag_r_of_row=0,level_1_hints_score_flag_o_of_row=0,level_1_hints_score_flag_w_of_row=0,level_1_hints_score_flag_o_of_or=0,level_1_hints_score_flag_r_of_or=0,level_1_hints_score_flag_d_of_deny=0,level_1_hints_score_flag_e_of_deny=0,level_1_hints_score_flag_n_of_deny=0,level_1_hints_score_flag_y_of_deny=0,level_1_hints_score_flag_d_of_dye=0,level_1_hints_score_flag_y_of_dye=0,level_1_hints_score_flag_e_of_dye=0,level_1_hints_score_flag_d_of_den=0,level_1_hints_score_flag_e_of_den=0,level_1_hints_score_flag_n_of_den=0,level_1_hints_score_flag_d_of_end=0,level_1_hints_score_flag_e_of_end=0,level_1_hints_score_flag_n_of_end=0,level_1_hints_score_flag_g_of_gone=0,level_1_hints_score_flag_o_of_gone=0,level_1_hints_score_flag_n_of_gone=0,level_1_hints_score_flag_e_of_gone=0,level_1_hints_score_flag_g_of_gen=0,level_1_hints_score_flag_e_of_gen=0,level_1_hints_score_flag_n_of_gen=0,level_1_hints_score_flag_o_of_one=0,level_1_hints_score_flag_n_of_one=0,level_1_hints_score_flag_e_of_one=0,level_1_hints_score_flag_e_of_ego=0,level_1_hints_score_flag_g_of_ego=0,level_1_hints_score_flag_o_of_ego=0,level_1_hints_score_flag_e_of_earn=0,level_1_hints_score_flag_a_of_earn=0,level_1_hints_score_flag_r_of_earn=0,level_1_hints_score_flag_n_of_earn=0,level_1_hints_score_flag_e_of_near=0,level_1_hints_score_flag_a_of_near=0,level_1_hints_score_flag_r_of_near=0,level_1_hints_score_flag_n_of_near=0,level_1_hints_score_flag_e_of_era=0,level_1_hints_score_flag_r_of_era=0,level_1_hints_score_flag_a_of_era=0,level_1_hints_score_flag_e_of_ear=0,level_1_hints_score_flag_r_of_ear=0,level_1_hints_score_flag_a_of_ear=0,level_1_hints_score_flag_h_of_heat=0,level_1_hints_score_flag_e_of_heat=0,level_1_hints_score_flag_a_of_heat=0,level_1_hints_score_flag_t_of_heat=0,level_1_hints_score_flag_t_of_tea=0,level_1_hints_score_flag_e_of_tea=0,level_1_hints_score_flag_a_of_tea=0,level_1_hints_score_flag_t_of_eat=0,level_1_hints_score_flag_a_of_eat=0,level_1_hints_score_flag_e_of_eat=0,level_1_hints_score_flag_t_of_the=0,level_1_hints_score_flag_h_of_the=0,level_1_hints_score_flag_e_of_the=0;
+
+int level_1_hints_image_flag_w_of_word=0,level_1_hints_image_flag_o_of_word=0,level_1_hints_image_flag_r_of_word=0,level_1_hints_image_flag_d_of_word=0,level_1_hints_image_flag_r_of_row=0,level_1_hints_image_flag_o_of_row=0,level_1_hints_image_flag_w_of_row=0,level_1_hints_image_flag_o_of_or=0,level_1_hints_image_flag_r_of_or=0,level_1_hints_image_flag_d_of_deny=0,level_1_hints_image_flag_e_of_deny=0,level_1_hints_image_flag_n_of_deny=0,level_1_hints_image_flag_y_of_deny=0,level_1_hints_image_flag_d_of_dye=0,level_1_hints_image_flag_y_of_dye=0,level_1_hints_image_flag_e_of_dye=0,level_1_hints_image_flag_d_of_den=0,level_1_hints_image_flag_e_of_den=0,level_1_hints_image_flag_n_of_den=0,level_1_hints_image_flag_d_of_end=0,level_1_hints_image_flag_e_of_end=0,level_1_hints_image_flag_n_of_end=0,level_1_hints_image_flag_g_of_gone=0,level_1_hints_image_flag_o_of_gone=0,level_1_hints_image_flag_n_of_gone=0,level_1_hints_image_flag_e_of_gone=0,level_1_hints_image_flag_g_of_gen=0,level_1_hints_image_flag_e_of_gen=0,level_1_hints_image_flag_n_of_gen=0,level_1_hints_image_flag_o_of_one=0,level_1_hints_image_flag_n_of_one=0,level_1_hints_image_flag_e_of_one=0,level_1_hints_image_flag_e_of_ego=0,level_1_hints_image_flag_g_of_ego=0,level_1_hints_image_flag_o_of_ego=0,level_1_hints_image_flag_e_of_earn=0,level_1_hints_image_flag_a_of_earn=0,level_1_hints_image_flag_r_of_earn=0,level_1_hints_image_flag_n_of_earn=0,level_1_hints_image_flag_e_of_near=0,level_1_hints_image_flag_a_of_near=0,level_1_hints_image_flag_r_of_near=0,level_1_hints_image_flag_n_of_near=0,level_1_hints_image_flag_e_of_era=0,level_1_hints_image_flag_r_of_era=0,level_1_hints_image_flag_a_of_era=0,level_1_hints_image_flag_e_of_ear=0,level_1_hints_image_flag_r_of_ear=0,level_1_hints_image_flag_a_of_ear=0,level_1_hints_image_flag_h_of_heat=0,level_1_hints_image_flag_e_of_heat=0,level_1_hints_image_flag_a_of_heat=0,level_1_hints_image_flag_t_of_heat=0,level_1_hints_image_flag_t_of_tea=0,level_1_hints_image_flag_e_of_tea=0,level_1_hints_image_flag_a_of_tea=0,level_1_hints_image_flag_t_of_eat=0,level_1_hints_image_flag_a_of_eat=0,level_1_hints_image_flag_e_of_eat=0,level_1_hints_image_flag_t_of_the=0,level_1_hints_image_flag_h_of_the=0,level_1_image_score_flag_e_of_the=0;
+
+int level_0_hints_image_flag_t_of_tab=0,level_0_hints_image_flag_a_of_tab=0,level_0_hints_image_flag_b_of_tab=0,level_0_hints_image_flag_t_of_bat=0,level_0_hints_image_flag_a_of_bat=0,level_0_hints_image_flag_b_of_bat=0,level_0_hints_image_flag_t_of_at=0,level_0_hints_image_flag_a_of_at=0,level_0_hints_image_flag_b_of_bro=0,level_0_hints_image_flag_r_of_bro=0,level_0_hints_image_flag_o_of_bro=0,level_0_hints_image_flag_r_of_rob=0,level_0_hints_image_flag_o_of_rob=0,level_0_hints_image_flag_b_of_rob=0,level_0_hints_image_flag_r_of_or=0,level_0_hints_image_flag_o_of_or=0,level_0_hints_image_flag_m_of_mad=0,level_0_hints_image_flag_a_of_mad=0,level_0_hints_image_flag_d_of_mad=0,level_0_hints_image_flag_d_of_dam=0,level_0_hints_image_flag_a_of_dam=0,level_0_hints_image_flag_m_of_dam=0,level_0_hints_image_flag_m_of_am=0,level_0_hints_image_flag_a_of_am=0,level_0_hints_image_flag_t_of_tip=0,level_0_hints_image_flag_i_of_tip=0,level_0_hints_image_flag_p_of_tip=0,level_0_hints_image_flag_t_of_pit=0,level_0_hints_image_flag_i_of_pit=0,level_0_hints_image_flag_p_of_pit=0,level_0_hints_image_flag_t_of_it=0,level_0_hints_image_flag_i_of_it=0;
+char string_time_sec[1000],string_time_min[1000];
+
+int modechest=ChestClose;
+int time_sec=60,time_min=5;
+int level=20;char str_level[1000];
+int GameMode=MenuMode;
+char word_level_0[5][4]={"TAB","MAD","ROB","TAP","TIP"};
+char word_level_1[5][5]={"DENY","WORD","GONE","NEAR","HEAT"};
+char word_level_2[3][6]={"DREAM","SWING","WRONG"};
+int index_tab[3],index_rob[3],index_mad[3],index_tip[3],index_tap[3];
+int index_dream[5],index_swing[5],index_wrong[5];
+int flag_easy_level=0,flag_medium_level=0,flag_hard_level=0,flag_exit=0;;
+int index_word[4],index_deny[4],index_gone[4],index_near[4],index_earn[4],index_heat[4];
+int WordRandom[5],Index=0;
+FILE *ScoreRead;
+FILE *ScoreReadUsername;
+FILE *ScoreWrite;
+FILE *ScoreRead2;
+int scorefile[1000],scorefileUsername,p=5,scorefile2[1000];
+char UserName[100];
+int score_array[4],i_score,j_score,temp,score_array2[4];
+struct leaderboard{
+	char name[20];
+	int Score;
+	char str[100];
+};
+struct leaderboard user1,user2,user3,user4;
+struct RandomWord{
+	int easy;
+	int medium;
+	int hard;
+	
+};
+RandomWord word1,word2,word3,word4,word5,word6;
+struct Alphabet{
+	int a;int b;int c;int d;int e;int f;int g;int h;int i;int j;int k;int l;int m;int n;int o;int p;int q;int r;int s;int t;int u;int v;int w;int x;int y;int z;
+
+};
+struct WordAlphabetPosition{
+	struct Alphabet tab;
+	struct Alphabet rob;
+	struct Alphabet mad;
+	struct Alphabet tip;
+	struct Alphabet tap;
+	struct Alphabet word;
+	struct Alphabet deny;
+	struct Alphabet gone;
+	struct Alphabet earn;
+	struct Alphabet heat;
+	struct Alphabet dream;
+	struct Alphabet swing;
+	struct Alphabet wrong;
+}position_x,position_y;
+ 
+
+struct IndexImage{
+	int index_image;
+}first,second,third,fourth,fifth;
